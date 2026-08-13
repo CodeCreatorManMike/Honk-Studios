@@ -5,17 +5,11 @@ function waLink(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-function assetPath(p) {
-  // resolves relative to site root so it works from nested pages
-  return (window.SITE_ROOT || "") + p;
-}
-
 const HEADER_HTML = `
 <header class="site-header">
   <div class="header-inner">
-    <a href="${"index.html"}" class="logo">
-      <img src="assets/icons/png/microphone.png" alt="Honk Studios logo" onerror="this.src='assets/mockups/icons-mockups.png'">
-      Honk Studios
+    <a href="index.html" class="logo">
+      <img src="assets/icons/svg/logo-badge.svg" alt="Honk Studios">
     </a>
     <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
     <nav class="main-nav" id="main-nav">
@@ -29,7 +23,7 @@ const HEADER_HTML = `
     </nav>
     <div class="header-cta">
       <a class="btn btn-primary" target="_blank" rel="noopener" href="${waLink("Hi Honk Studios! I'd like to book on WhatsApp.")}">
-        <img src="assets/icons/svg/chat.svg" alt="" style="filter:brightness(0) invert(1)">
+        <img src="assets/icons/svg/whatsapp.svg" alt="">
         <span class="btn-label">Book on WhatsApp</span>
       </a>
     </div>
@@ -43,14 +37,14 @@ const FOOTER_HTML = `
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="assets/icons/png/microphone.png" alt="">
+          <img src="assets/icons/svg/logo-badge.svg" alt="">
           Honk Studios
         </div>
-        <p class="muted" style="color:#a9bccb">Recording studio, rehearsal space and creative sound services in the heart of Oxford. Artist-first, community-minded.</p>
+        <p class="footer-desc">Recording studio, rehearsal space and creative sound services in the heart of Oxford. Artist-first, community-minded.</p>
         <div class="social-row">
-          <a href="#" aria-label="Instagram"><img src="assets/icons/svg/link.svg" alt="" style="width:16px;filter:brightness(0) invert(1)"></a>
-          <a href="#" aria-label="Facebook"><img src="assets/icons/svg/link.svg" alt="" style="width:16px;filter:brightness(0) invert(1)"></a>
-          <a href="https://www.linkedin.com/in/robingallardop/" aria-label="LinkedIn"><img src="assets/icons/svg/link.svg" alt="" style="width:16px;filter:brightness(0) invert(1)"></a>
+          <a href="#" aria-label="Instagram"><img src="assets/icons/svg/link.svg" alt="" style="width:12px;filter:brightness(0) invert(1)"></a>
+          <a href="#" aria-label="Facebook"><img src="assets/icons/svg/link.svg" alt="" style="width:12px;filter:brightness(0) invert(1)"></a>
+          <a href="https://www.linkedin.com/in/robingallardop/" aria-label="LinkedIn"><img src="assets/icons/svg/link.svg" alt="" style="width:12px;filter:brightness(0) invert(1)"></a>
         </div>
       </div>
       <div>
@@ -83,8 +77,11 @@ const FOOTER_HTML = `
           <li>9 Park End Street</li>
           <li>Oxford, OX1 1HH</li>
           <li>3 mins from Oxford station</li>
-          <li><a class="btn btn-primary" style="margin-top:8px" target="_blank" rel="noopener" href="${waLink("Hi Honk Studios! I'd like to book on WhatsApp.")}">Book on WhatsApp</a></li>
+          <li><a class="btn btn-primary btn-sm" style="margin-top:6px" target="_blank" rel="noopener" href="${waLink("Hi Honk Studios! I'd like to book on WhatsApp.")}">Book on WhatsApp</a></li>
         </ul>
+      </div>
+      <div class="footer-goose">
+        <img src="assets/geese/chatgpt-image-aug-13-2026-08-07-17-pm.png" alt="">
       </div>
     </div>
     <div class="footer-bottom">
@@ -93,9 +90,6 @@ const FOOTER_HTML = `
     </div>
   </div>
 </footer>
-<a class="wa-float" target="_blank" rel="noopener" href="${waLink("Hi Honk Studios! I'd like to ask about booking.")}" aria-label="Chat on WhatsApp">
-  <img src="assets/icons/svg/chat.svg" alt="">
-</a>
 `;
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <circle cx="60" cy="60" r="58" fill="#f4c430" stroke="#113262" stroke-width="2"/>
+  <path d="M40 78 Q36 55 48 42 Q54 34 64 36 Q70 30 76 34 Q80 40 74 46 Q80 50 78 58 Q84 62 80 70 Q78 80 66 80 Q60 86 52 82 Q44 84 40 78 Z" fill="#113262"/>
+  <circle cx="70" cy="44" r="2.5" fill="#f4c430"/>
+  <text x="60" y="104" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="15" fill="#113262">HONK</text>
+</svg>
