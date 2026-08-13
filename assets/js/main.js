@@ -9,7 +9,7 @@ const HEADER_HTML = `
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="logo">
-      <img src="assets/icons/svg/logo-badge.svg" alt="Honk Studios">
+      <img src="assets/icons/png/honk-logo.png" alt="Honk Studios">
     </a>
     <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
     <nav class="main-nav" id="main-nav">
@@ -37,7 +37,7 @@ const FOOTER_HTML = `
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="assets/icons/svg/logo-badge.svg" alt="">
+          <img src="assets/icons/png/honk-logo.png" alt="">
           Honk Studios
         </div>
         <p class="footer-desc">Recording studio, rehearsal space and creative sound services in the heart of Oxford. Artist-first, community-minded.</p>
