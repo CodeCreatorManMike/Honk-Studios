@@ -200,23 +200,49 @@ footer.site-footer{background:var(--footer-navy);color:#c9d6e2;padding:28px 0 16
 
 @media (max-width:900px){
   .hero-grid,.feature-split{grid-template-columns:1fr}
-  .grid-3,.grid-2{grid-template-columns:1fr 1fr}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
   .grid-6{grid-template-columns:repeat(3,1fr)}
   .gear-inner{grid-template-columns:1fr 1fr}
   .rehearsal-grid{grid-template-columns:1fr}
   .contact-panel{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .stat-strip{grid-template-columns:1fr 1fr}
+  .hero-image{text-align:center;order:-1}
+  .hero-image img{margin:0 auto;max-width:320px}
 }
 @media (max-width:640px){
   nav.main-nav{position:fixed;top:72px;left:0;right:0;background:#fff;flex-direction:column;padding:18px 24px;gap:16px;display:none;box-shadow:var(--shadow);z-index:60}
   nav.main-nav.open{display:flex}
   .nav-toggle{display:block}
   .header-cta .btn-label{display:none}
-  .grid-3,.grid-2,.grid-6{grid-template-columns:1fr 1fr}
+  .grid-3,.grid-6{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
+  .hero{text-align:center}
   .hero h1{font-size:1.7rem}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
   .footer-grid{grid-template-columns:1fr}
+  .footer-brand,.footer-desc,.social-row{justify-content:center;text-align:center}
+  .footer-brand{justify-self:center}
+  .social-row{justify-self:center}
+  .footer-goose{justify-self:center;text-align:center;margin-top:8px}
+  .footer-goose img{margin:0 auto}
   .stat-strip{grid-template-columns:1fr}
   .stat + .stat::before{display:none}
+  .gear-inner{grid-template-columns:1fr;text-align:center}
+  .gear-band .btn-outline-white{margin:0 auto}
+  .gear-list{align-items:center}
+  .gear-list li{text-align:left}
+  .gear-band img.gear-img{margin:12px auto 0;justify-self:center}
+  .container{padding:0 18px}
+  .grid-3{grid-template-columns:1fr}
+  .equip-list{columns:1}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .service-row{flex-direction:column;align-items:flex-start}
+  .portfolio-card{aspect-ratio:auto;min-height:190px}
+  .portfolio-card .play-btn{top:34%}
+  .portfolio-card .cap strong{font-size:.82rem}
+  .portfolio-card .cap span{font-size:.68rem}
 }
