@@ -1,8 +1,35 @@
-// Placeholder WhatsApp number until Honk Studios provides the real one.
-const WHATSAPP_NUMBER = "447700900123";
+// Honk Studios WhatsApp number
+const WHATSAPP_NUMBER = "447592399014";
 
 function waLink(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+// Context-aware default message for the header/footer "Book on WhatsApp" button,
+// keyed by the current page's data-page attribute.
+const PAGE_WA_MESSAGES = {
+  "index": "Hi Honk Studios! I'd like to book on WhatsApp.",
+  "studio-services": "Hi Honk Studios! I'd like to discuss studio services — which one:",
+  "recording": "Hi Honk Studios! I'd like to book a recording session — what I'm recording:",
+  "mixing-editing": "Hi Honk Studios! I'd like to ask about mixing/editing for a project — details:",
+  "sound-design": "Hi Honk Studios! I'd like to ask about sound design for a project — details:",
+  "podcasts-audio-drama": "Hi Honk Studios! I'd like to ask about recording a podcast/audio drama — details:",
+  "live-theatre": "Hi Honk Studios! I'd like to ask about live theatre sound — details:",
+  "foley-sound-design": "Hi Honk Studios! I'd like to ask about foley/sound design for a video project — details:",
+  "audio-books": "Hi Honk Studios! I'd like to ask about audiobook recording — details:",
+  "creative-projects": "Hi Honk Studios! I'd like to discuss a creative/collaborative audio project — details:",
+  "rehearsal-space": "Hi Honk Studios! I'd like to check rehearsal space availability and rates.",
+  "equipment": "Hi Honk Studios! I'd like to ask about equipment / engineer availability for a session.",
+  "listen": "Hi Honk Studios! I'd like to discuss a project after listening to your work.",
+  "visit": "Hi Honk Studios! I'd like to arrange a visit to the studio.",
+  "contact": "Hi Honk Studios! I have a question about booking / rates.",
+  "about": "Hi Honk Studios! I'd like to know more about the studio.",
+  "help": "Hi Honk Studios! I have a question that wasn't answered on the Help page:",
+};
+
+function headerWaMessage() {
+  const page = document.body.getAttribute("data-page");
+  return PAGE_WA_MESSAGES[page] || PAGE_WA_MESSAGES.index;
 }
 
 const HEADER_HTML = `
@@ -22,7 +49,7 @@ const HEADER_HTML = `
       <a href="contact.html" data-page="contact">Contact</a>
     </nav>
     <div class="header-cta">
-      <a class="btn btn-primary" target="_blank" rel="noopener" href="${waLink("Hi Honk Studios! I'd like to book on WhatsApp.")}">
+      <a class="btn btn-primary" target="_blank" rel="noopener" href="#" data-wa-header>
         <img src="assets/icons/svg/whatsapp.svg" alt="">
         <span class="btn-label">Book on WhatsApp</span>
       </a>
@@ -79,7 +106,7 @@ const FOOTER_HTML = `
           <li>9 Park End Street</li>
           <li>Oxford, OX1 1HH</li>
           <li>3 mins from Oxford station</li>
-          <li><a class="btn btn-primary btn-sm" style="margin-top:6px" target="_blank" rel="noopener" href="${waLink("Hi Honk Studios! I'd like to book on WhatsApp.")}">Book on WhatsApp</a></li>
+          <li><a class="btn btn-primary btn-sm" style="margin-top:6px" target="_blank" rel="noopener" href="#" data-wa-header>Book on WhatsApp</a></li>
         </ul>
       </div>
       <div class="footer-goose">
@@ -100,7 +127,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   "name": "Honk Studios",
   "url": "https://honkstudiosoxford.co.uk/",
   "image": "https://honkstudiosoxford.co.uk/assets/icons/png/honk-logo.png",
-  "telephone": "+44 7700 900123",
+  "telephone": "+44 7592 399014",
   "email": "robin@honkstudios.co.uk",
   "address": {
     "@type": "PostalAddress",
@@ -119,6 +146,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerEl = document.getElementById("site-footer");
   if (headerEl) headerEl.innerHTML = HEADER_HTML;
   if (footerEl) footerEl.innerHTML = FOOTER_HTML;
+
+  document.querySelectorAll("[data-wa-header]").forEach(el => {
+    el.setAttribute("href", waLink(headerWaMessage()));
+  });
 
   if (!document.getElementById("local-business-schema")) {
     const script = document.createElement("script");
