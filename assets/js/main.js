@@ -69,9 +69,9 @@ const FOOTER_HTML = `
         </div>
         <p class="footer-desc">Recording studio, rehearsal space and creative sound services in the heart of Oxford. Artist-first, community-minded.</p>
         <div class="social-row">
-          <a href="#" aria-label="Instagram"><img src="assets/icons/svg/link.svg" alt="" style="width:12px;filter:brightness(0) invert(1)"></a>
-          <a href="#" aria-label="Facebook"><img src="assets/icons/svg/link.svg" alt="" style="width:12px;filter:brightness(0) invert(1)"></a>
-          <a href="https://www.linkedin.com/in/robingallardop/" aria-label="LinkedIn"><img src="assets/icons/svg/link.svg" alt="" style="width:12px;filter:brightness(0) invert(1)"></a>
+          <a href="#" aria-label="Instagram"><img src="assets/icons/svg/instagram.svg" alt="" style="width:14px"></a>
+          <a href="#" aria-label="Facebook"><img src="assets/icons/svg/facebook.svg" alt="" style="width:14px"></a>
+          <a href="https://www.linkedin.com/in/robingallardop/" aria-label="LinkedIn"><img src="assets/icons/svg/linkedin.svg" alt="" style="width:14px"></a>
         </div>
       </div>
       <div>
