@@ -57,17 +57,19 @@ const FOOTER_HTML = `
           <li><a href="listen.html">Listen</a></li>
           <li><a href="visit.html">Visit</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="help.html">Help &amp; FAQs</a></li>
         </ul>
       </div>
       <div>
         <h4>Services</h4>
         <ul>
-          <li><a href="studio-services.html#recording">Recording</a></li>
-          <li><a href="studio-services.html#mixing">Mixing &amp; Editing</a></li>
-          <li><a href="studio-services.html#sound-design">Sound Design</a></li>
-          <li><a href="studio-services.html#podcasts">Podcasts / Audio Drama</a></li>
+          <li><a href="recording.html">Recording</a></li>
+          <li><a href="mixing-editing.html">Mixing &amp; Editing</a></li>
+          <li><a href="sound-design.html">Sound Design</a></li>
+          <li><a href="podcasts-audio-drama.html">Podcasts / Audio Drama</a></li>
           <li><a href="rehearsal-space.html">Rehearsal Space</a></li>
-          <li><a href="studio-services.html#creative-projects">Creative Projects</a></li>
+          <li><a href="creative-projects.html">Creative Projects</a></li>
         </ul>
       </div>
       <div>
@@ -86,17 +88,45 @@ const FOOTER_HTML = `
     </div>
     <div class="footer-bottom">
       <span>&copy; 2025 Honk Studios. All rights reserved.</span>
-      <span><a href="#">Privacy Policy</a><a href="#">Terms</a></span>
+      <span><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a></span>
     </div>
   </div>
 </footer>
 `;
+
+const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Honk Studios",
+  "url": "https://honkstudiosoxford.co.uk/",
+  "image": "https://honkstudiosoxford.co.uk/assets/icons/png/honk-logo.png",
+  "telephone": "+44 7700 900123",
+  "email": "robin@honkstudios.co.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9 Park End Street",
+    "addressLocality": "Oxford",
+    "addressRegion": "Oxfordshire",
+    "postalCode": "OX1 1HH",
+    "addressCountry": "GB"
+  },
+  "areaServed": "Oxford, Oxfordshire",
+  "priceRange": "£"
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   const headerEl = document.getElementById("site-header");
   const footerEl = document.getElementById("site-footer");
   if (headerEl) headerEl.innerHTML = HEADER_HTML;
   if (footerEl) footerEl.innerHTML = FOOTER_HTML;
+
+  if (!document.getElementById("local-business-schema")) {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "local-business-schema";
+    script.textContent = JSON.stringify(LOCAL_BUSINESS_SCHEMA);
+    document.head.appendChild(script);
+  }
 
   const current = document.body.getAttribute("data-page");
   document.querySelectorAll(`nav.main-nav a[data-page="${current}"]`).forEach(a => a.classList.add("active"));
