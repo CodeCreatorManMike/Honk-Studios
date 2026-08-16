@@ -154,7 +154,8 @@ nav.main-nav a:hover{border-color:var(--honk-yellow)}
 .portfolio-card .cap span{font-size:.66rem;color:#dbe4ee;line-height:1.15}
 
 /* Visit / contact combined compact panel */
-.contact-panel{background:var(--warm-ivory);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px;display:grid;grid-template-columns:27% 31% 42%;gap:24px}
+.contact-panel{background:var(--warm-ivory);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px;display:grid;grid-template-columns:minmax(0,.65fr) minmax(0,.75fr) minmax(0,1fr);gap:24px}
+.contact-panel form.contact-form,.contact-panel .form-row{min-width:0}
 .contact-panel h3{font-size:1rem;margin-bottom:10px}
 .info-row{display:flex;gap:10px;margin-bottom:10px;font-size:.82rem}
 .info-row img{width:16px;height:16px;margin-top:2px}
@@ -177,7 +178,7 @@ form.contact-form label{font-size:.75rem;font-weight:600;color:var(--honk-navy);
 .hours-card img{width:44px;height:44px}
 
 /* Booking widget */
-.booking-widget{background:var(--card-white);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px;max-width:480px;margin:0 auto}
+.booking-widget{background:var(--card-white);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:28px;max-width:720px;margin:0 auto}
 .booking-widget select,.booking-widget input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-family:inherit;margin-bottom:12px;font-size:.85rem}
 .booking-widget label{font-size:.78rem;font-weight:600;color:var(--honk-navy);margin-bottom:4px;display:block}
 

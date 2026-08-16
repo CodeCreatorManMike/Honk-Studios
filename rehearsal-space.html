@@ -105,10 +105,16 @@ table.rates td:first-child,table.rates th:first-child{text-align:left}
         <input type="hidden" name="service" value="Rehearsal Space">
         <label>Name</label>
         <input name="name" placeholder="Your name" required>
-        <label>Preferred date</label>
-        <input name="date" type="date">
-        <label>Preferred time</label>
-        <input name="time" type="time">
+        <div class="form-row">
+          <div>
+            <label>Preferred date</label>
+            <input name="date" type="date">
+          </div>
+          <div>
+            <label>Preferred time</label>
+            <input name="time" type="time">
+          </div>
+        </div>
         <button class="btn btn-primary btn-block" type="submit">Continue on WhatsApp</button>
       </form>
     </div>
