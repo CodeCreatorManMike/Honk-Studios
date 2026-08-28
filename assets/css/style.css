@@ -113,7 +113,7 @@ nav.main-nav a:hover{border-color:var(--honk-yellow)}
 
 /* Rehearsal / two-col feature */
 .feature-split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-.feature-split img{border-radius:var(--radius-md)}
+.feature-split img{border-radius:var(--radius-md);max-width:220px;width:100%;margin:0 auto;justify-self:center}
 .feature-list{list-style:none;padding:0;margin:16px 0}
 .feature-list li{display:flex;gap:10px;margin-bottom:9px;font-size:.9rem}
 .feature-list li::before{content:"✓";color:var(--honk-mid-blue);font-weight:800}
@@ -170,9 +170,24 @@ form.contact-form textarea{min-height:70px;resize:vertical}
 form.contact-form label{font-size:.75rem;font-weight:600;color:var(--honk-navy);margin-bottom:3px;display:block}
 
 .info-card{background:var(--card-white);border:1px solid var(--border);border-top:3px solid var(--honk-yellow);border-radius:var(--radius-md);padding:24px;box-shadow:var(--shadow)}
-.service-row{display:flex;gap:18px;align-items:flex-start}
+.card.service-row{display:flex;gap:20px;align-items:flex-start;padding:28px 24px 30px}
 .service-row .icon-wrap{flex:0 0 auto;margin-bottom:0}
 .service-row .icon-wrap img{height:60px;width:auto;object-fit:contain}
+.service-row h3{font-size:1.2rem;margin-bottom:8px}
+.service-row p{font-size:.94rem;line-height:1.55;margin-bottom:14px}
+.service-row .learn{display:inline-flex;align-items:center;gap:6px;background:var(--honk-mint);color:var(--honk-mid-blue);padding:9px 16px;border-radius:var(--radius-sm);font-weight:700;font-size:.82rem}
+.service-row .learn:hover{background:var(--honk-yellow);color:var(--honk-navy);text-decoration:none}
+
+/* FAQ accordion (service sub-pages) */
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-list .info-card{padding:0;overflow:hidden;margin-bottom:0!important}
+.faq-list .faq-q{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;background:none;border:none;text-align:left;font:inherit;cursor:pointer;padding:18px 20px;color:var(--honk-navy)}
+.faq-list .faq-q h3{margin:0;font-size:1rem}
+.faq-list .faq-chevron{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--honk-mint);display:flex;align-items:center;justify-content:center;color:var(--honk-mid-blue);font-weight:700;font-size:.8rem;transition:transform .2s ease,background .2s ease}
+.faq-list .info-card.open .faq-chevron{transform:rotate(180deg);background:var(--honk-yellow);color:var(--honk-navy)}
+.faq-list .faq-a{max-height:0;overflow:hidden;transition:max-height .28s ease}
+.faq-list .faq-a p{margin:0;padding:0 20px 18px}
+.faq-list .info-card.open .faq-a{max-height:400px}
 
 .hours-card{background:var(--honk-mint);border-left:3px solid var(--honk-yellow);border-radius:var(--radius-lg);padding:22px;display:flex;gap:16px;align-items:center}
 .hours-card img{width:44px;height:44px}
@@ -213,10 +228,17 @@ footer.site-footer{background:var(--footer-navy);color:#c9d6e2;padding:28px 0 16
   .hero-image img{margin:0 auto;max-width:320px}
 }
 @media (max-width:640px){
-  nav.main-nav{position:fixed;top:72px;left:0;right:0;background:#fff;flex-direction:column;padding:18px 24px;gap:16px;display:none;box-shadow:var(--shadow);z-index:60}
+  .hero .scribble{margin-left:auto;margin-right:auto}
+  nav.main-nav{position:fixed;top:72px;left:0;right:0;bottom:0;background:#fff;flex-direction:column;padding:10px 24px 24px;gap:2px;display:none;box-shadow:var(--shadow);z-index:60;overflow-y:auto}
   nav.main-nav.open{display:flex}
-  .nav-toggle{display:block}
+  nav.main-nav a{width:100%;padding:16px 4px;font-size:1.02rem;border-bottom:1px solid var(--border)}
+  nav.main-nav a:last-child{border-bottom:none}
+  .nav-toggle{display:block;font-size:1.8rem;line-height:1;padding:4px 6px}
+  body.nav-open{overflow:hidden}
   .header-cta .btn-label{display:none}
+  .header-cta .btn-primary{padding:12px 18px}
+  .header-cta .btn svg,.header-cta .btn img{width:22px;height:22px}
+  .feature-split .btn,.whatsapp-callout .btn{width:100%;justify-content:center;padding:14px 20px;font-size:.95rem}
   .grid-3,.grid-6{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}

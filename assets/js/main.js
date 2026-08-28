@@ -164,9 +164,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("main-nav");
+  const header = document.querySelector("header.site-header");
   if (toggle && nav) {
-    toggle.addEventListener("click", () => nav.classList.toggle("open"));
+    const setNavOpen = (open) => {
+      nav.classList.toggle("open", open);
+      document.body.classList.toggle("nav-open", open);
+      nav.style.top = open && header ? header.offsetHeight + "px" : "";
+      toggle.innerHTML = open ? "&#10005;" : "&#9776;";
+      toggle.setAttribute("aria-expanded", String(open));
+    };
+    toggle.addEventListener("click", () => setNavOpen(!nav.classList.contains("open")));
+    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setNavOpen(false)));
   }
+
+  // FAQ accordions (service sub-pages): turn flat Q/A info-cards into expand/collapse items
+  document.querySelectorAll(".faq-list .info-card").forEach(card => {
+    const q = card.querySelector("h3");
+    const a = card.querySelector("p");
+    if (!q || !a) return;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "faq-q";
+    btn.setAttribute("aria-expanded", "false");
+    const chevron = document.createElement("span");
+    chevron.className = "faq-chevron";
+    chevron.textContent = "↓";
+    btn.appendChild(q);
+    btn.appendChild(chevron);
+    const answerWrap = document.createElement("div");
+    answerWrap.className = "faq-a";
+    answerWrap.appendChild(a);
+    card.innerHTML = "";
+    card.appendChild(btn);
+    card.appendChild(answerWrap);
+    btn.addEventListener("click", () => {
+      const open = card.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(open));
+    });
+  });
 
   // Tabs (equipment page)
   document.querySelectorAll("[data-tabs]").forEach(group => {
