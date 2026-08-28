@@ -166,12 +166,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.getElementById("main-nav");
   const header = document.querySelector("header.site-header");
   if (toggle && nav) {
+    let scrollY = 0;
     const setNavOpen = (open) => {
       nav.classList.toggle("open", open);
-      document.body.classList.toggle("nav-open", open);
       nav.style.top = open && header ? header.offsetHeight + "px" : "";
       toggle.innerHTML = open ? "&#10005;" : "&#9776;";
       toggle.setAttribute("aria-expanded", String(open));
+      // iOS Safari ignores overflow:hidden on body for scroll locking, so pin it
+      // in place with position:fixed and restore the scroll position on close.
+      if (open) {
+        scrollY = window.scrollY;
+        document.body.style.top = `-${scrollY}px`;
+        document.body.classList.add("nav-open");
+      } else {
+        document.body.classList.remove("nav-open");
+        document.body.style.top = "";
+        window.scrollTo(0, scrollY);
+      }
     };
     toggle.addEventListener("click", () => setNavOpen(!nav.classList.contains("open")));
     nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setNavOpen(false)));
