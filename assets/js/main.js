@@ -18,7 +18,6 @@ const PAGE_WA_MESSAGES = {
   "foley-sound-design": "Hi Honk Studios! I'd like to ask about foley/sound design for a video project — details:",
   "audio-books": "Hi Honk Studios! I'd like to ask about audiobook recording — details:",
   "creative-projects": "Hi Honk Studios! I'd like to discuss a creative/collaborative audio project — details:",
-  "rehearsal-space": "Hi Honk Studios! I'd like to check rehearsal space availability and rates.",
   "equipment": "Hi Honk Studios! I'd like to ask about equipment / engineer availability for a session.",
   "listen": "Hi Honk Studios! I'd like to discuss a project after listening to your work.",
   "visit": "Hi Honk Studios! I'd like to arrange a visit to the studio.",
@@ -42,7 +41,6 @@ const HEADER_HTML = `
     <nav class="main-nav" id="main-nav">
       <a href="index.html" data-page="index">Home</a>
       <a href="studio-services.html" data-page="studio-services">Studio Services</a>
-      <a href="rehearsal-space.html" data-page="rehearsal-space">Rehearsal Space</a>
       <a href="equipment.html" data-page="equipment">Equipment</a>
       <a href="listen.html" data-page="listen">Listen</a>
       <a href="visit.html" data-page="visit">Visit</a>
@@ -67,7 +65,7 @@ const FOOTER_HTML = `
           <img src="assets/icons/png/honk-logo.png" alt="">
           Honk Studios
         </div>
-        <p class="footer-desc">Recording studio, rehearsal space and creative sound services in the heart of Oxford. Artist-first, community-minded.</p>
+        <p class="footer-desc">Recording studio and creative sound services in the heart of Oxford. Artist-first, community-minded.</p>
         <div class="social-row">
           <a href="#" aria-label="Instagram"><img src="assets/icons/svg/instagram.svg" alt="" style="width:14px"></a>
           <a href="#" aria-label="Facebook"><img src="assets/icons/svg/facebook.svg" alt="" style="width:14px"></a>
@@ -79,7 +77,6 @@ const FOOTER_HTML = `
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="studio-services.html">Studio Services</a></li>
-          <li><a href="rehearsal-space.html">Rehearsal Space</a></li>
           <li><a href="equipment.html">Equipment</a></li>
           <li><a href="listen.html">Listen</a></li>
           <li><a href="visit.html">Visit</a></li>
@@ -95,7 +92,6 @@ const FOOTER_HTML = `
           <li><a href="mixing-editing.html">Mixing &amp; Editing</a></li>
           <li><a href="sound-design.html">Sound Design</a></li>
           <li><a href="podcasts-audio-drama.html">Podcasts / Audio Drama</a></li>
-          <li><a href="rehearsal-space.html">Rehearsal Space</a></li>
           <li><a href="creative-projects.html">Creative Projects</a></li>
         </ul>
       </div>
