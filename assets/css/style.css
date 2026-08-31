@@ -76,7 +76,7 @@ nav.main-nav a:hover{border-color:var(--honk-yellow)}
 .hero-image img{margin:0 0 0 auto;max-width:420px;width:100%}
 
 .stat-strip{background:var(--warm-ivory);border:1px solid var(--border);border-top:3px solid var(--honk-yellow);border-radius:var(--radius-md);box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);align-items:center;padding:16px 20px;gap:10px}
-.stat{display:flex;align-items:center;gap:10px;position:relative}
+.stat{display:flex;align-items:center;gap:10px;position:relative;text-align:left}
 .stat img{width:32px;height:32px;object-fit:contain}
 .stat strong{display:block;font-size:.82rem;color:var(--honk-navy);font-weight:600}
 .stat span{font-size:.72rem;color:var(--muted)}
