@@ -258,6 +258,7 @@ footer.site-footer{background:var(--footer-navy);color:#c9d6e2;padding:28px 0 16
   .stat-strip{grid-template-columns:1fr}
   .stat + .stat::before{display:none}
   .gear-inner{grid-template-columns:1fr;text-align:center}
+  .gear-band .scribble{margin-left:auto;margin-right:auto}
   .gear-band .btn-outline-white{margin:0 auto}
   .gear-list{align-items:center}
   .gear-list li{text-align:left}
