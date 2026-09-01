@@ -24,7 +24,10 @@
   --font-sans:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 *{box-sizing:border-box}
-html{}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
 body{margin:0;font-family:var(--font-sans);color:var(--text);background:var(--page-mint);line-height:1.5;font-size:15px}
 h1,h2,h3,h4{font-family:var(--font-serif);color:var(--honk-navy);margin:0 0 .35em;font-weight:700}
 a{color:inherit;text-decoration:none}
@@ -38,10 +41,14 @@ img{max-width:100%;display:block}
 /* yellow scribble underline */
 .scribble{display:block;height:9px;margin-top:4px}
 .scribble svg{display:block;height:100%;width:auto}
+.scribble path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw-scribble .7s ease-out .1s forwards}
 .center .scribble{margin-left:auto;margin-right:auto}
+@keyframes draw-scribble{to{stroke-dashoffset:0}}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--radius-md);font-weight:600;font-size:.86rem;border:1.5px solid transparent;cursor:pointer;transition:.15s ease;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--radius-md);font-weight:600;font-size:.86rem;border:1.5px solid transparent;cursor:pointer;transition:background-color .15s ease,color .15s ease,border-color .15s ease,transform .15s ease,box-shadow .15s ease;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(17,50,98,.15)}
+.btn:active{transform:translateY(0);box-shadow:none}
 .btn-primary{background:var(--whatsapp-green);color:#fff}
 .btn-primary:hover{background:var(--whatsapp-green-dark)}
 .btn-outline{background:#fff;color:var(--honk-navy);border-color:var(--honk-navy)}
@@ -60,7 +67,7 @@ header.site-header{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0
 .logo{display:flex;align-items:center}
 .logo img{width:52px;height:52px;border-radius:50%;object-fit:contain}
 nav.main-nav{display:flex;gap:22px;align-items:center;justify-content:center}
-nav.main-nav a{font-weight:500;color:var(--honk-navy);font-size:.82rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.main-nav a{font-weight:500;color:var(--honk-navy);font-size:.82rem;padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .15s ease,color .15s ease}
 nav.main-nav a.active{border-color:var(--honk-yellow)}
 nav.main-nav a:hover{border-color:var(--honk-yellow)}
 .header-cta{display:flex;align-items:center;gap:14px;justify-self:end}
@@ -93,7 +100,8 @@ nav.main-nav a:hover{border-color:var(--honk-yellow)}
 .grid-3{grid-template-columns:repeat(3,1fr)}
 .grid-2{grid-template-columns:repeat(2,1fr)}
 .grid-6{grid-template-columns:repeat(6,1fr)}
-.card{background:var(--card-white);border:1px solid var(--border);border-top:3px solid var(--honk-yellow);border-radius:var(--radius-md);padding:16px 14px 0;box-shadow:var(--shadow)}
+.card{background:var(--card-white);border:1px solid var(--border);border-top:3px solid var(--honk-yellow);border-radius:var(--radius-md);padding:16px 14px 0;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+a.card:hover,a.card:focus-visible{transform:translateY(-3px);box-shadow:0 8px 18px rgba(17,50,98,.13)}
 .card .icon-wrap{margin-bottom:10px}
 .card .icon-wrap img{height:52px;width:auto;object-fit:contain}
 .card h3{font-size:1rem;margin-bottom:5px;line-height:1.1}
@@ -146,8 +154,10 @@ nav.main-nav a:hover{border-color:var(--honk-yellow)}
 
 /* Listen portfolio */
 .portfolio-card{position:relative;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:145/132;background:var(--honk-navy)}
-.portfolio-card img.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6}
-.portfolio-card .play-btn{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);width:30px;height:30px;background:rgba(255,255,255,.94);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.portfolio-card img.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;transition:transform .35s ease,opacity .2s ease}
+.portfolio-card:hover img.cover,.portfolio-card:focus-visible img.cover{transform:scale(1.06);opacity:.72}
+.portfolio-card .play-btn{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);width:30px;height:30px;background:rgba(255,255,255,.94);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s ease}
+.portfolio-card:hover .play-btn,.portfolio-card:focus-visible .play-btn{transform:translate(-50%,-50%) scale(1.12)}
 .portfolio-card .play-btn img{width:12px;height:12px}
 .portfolio-card .cap{position:absolute;left:8px;right:8px;bottom:8px;color:#fff;text-align:center}
 .portfolio-card .cap strong{display:block;font-size:.78rem}
@@ -181,7 +191,8 @@ form.contact-form label{font-size:.75rem;font-weight:600;color:var(--honk-navy);
 /* FAQ accordion (service sub-pages) */
 .faq-list{display:flex;flex-direction:column;gap:12px}
 .faq-list .info-card{padding:0;overflow:hidden;margin-bottom:0!important}
-.faq-list .faq-q{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;background:none;border:none;text-align:left;font:inherit;cursor:pointer;padding:18px 20px;color:var(--honk-navy)}
+.faq-list .faq-q{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;background:none;border:none;text-align:left;font:inherit;cursor:pointer;padding:18px 20px;color:var(--honk-navy);transition:background-color .15s ease}
+.faq-list .faq-q:hover,.faq-list .faq-q:focus-visible{background:var(--page-mint-pale)}
 .faq-list .faq-q h3{margin:0;font-size:1rem}
 .faq-list .faq-chevron{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--honk-mint);display:flex;align-items:center;justify-content:center;color:var(--honk-mid-blue);font-weight:700;font-size:.8rem;transition:transform .2s ease,background .2s ease}
 .faq-list .info-card.open .faq-chevron{transform:rotate(180deg);background:var(--honk-yellow);color:var(--honk-navy)}

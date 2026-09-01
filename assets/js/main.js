@@ -1,5 +1,5 @@
 // Honk Studios WhatsApp number
-const WHATSAPP_NUMBER = "447592399014";
+const WHATSAPP_NUMBER = "447468908687";
 
 function waLink(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -123,7 +123,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   "name": "Honk Studios",
   "url": "https://honkstudiosoxford.co.uk/",
   "image": "https://honkstudiosoxford.co.uk/assets/icons/png/honk-logo.png",
-  "telephone": "+44 7592 399014",
+  "telephone": "+44 7468 908687",
   "email": "robin@honkstudios.co.uk",
   "address": {
     "@type": "PostalAddress",
