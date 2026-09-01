@@ -83,7 +83,7 @@ nav.main-nav a:hover{border-color:var(--honk-yellow)}
 .hero-image img{margin:0 0 0 auto;max-width:420px;width:100%}
 
 .stat-strip{background:var(--warm-ivory);border:1px solid var(--border);border-top:3px solid var(--honk-yellow);border-radius:var(--radius-md);box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);align-items:center;padding:16px 20px;gap:10px}
-.stat{display:flex;align-items:center;gap:10px;position:relative}
+.stat{display:flex;align-items:center;gap:10px;position:relative;text-align:left}
 .stat img{width:32px;height:32px;object-fit:contain}
 .stat strong{display:block;font-size:.82rem;color:var(--honk-navy);font-weight:600}
 .stat span{font-size:.72rem;color:var(--muted)}
@@ -100,7 +100,7 @@ nav.main-nav a:hover{border-color:var(--honk-yellow)}
 .grid-3{grid-template-columns:repeat(3,1fr)}
 .grid-2{grid-template-columns:repeat(2,1fr)}
 .grid-6{grid-template-columns:repeat(6,1fr)}
-.card{background:var(--card-white);border:1px solid var(--border);border-top:3px solid var(--honk-yellow);border-radius:var(--radius-md);padding:16px 14px 0;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+.card{background:var(--card-white);border:1px solid var(--border);border-top:3px solid var(--honk-yellow);border-radius:var(--radius-md);padding:16px 14px 18px;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
 a.card:hover,a.card:focus-visible{transform:translateY(-3px);box-shadow:0 8px 18px rgba(17,50,98,.13)}
 .card .icon-wrap{margin-bottom:10px}
 .card .icon-wrap img{height:52px;width:auto;object-fit:contain}
@@ -269,6 +269,7 @@ footer.site-footer{background:var(--footer-navy);color:#c9d6e2;padding:28px 0 16
   .stat-strip{grid-template-columns:1fr}
   .stat + .stat::before{display:none}
   .gear-inner{grid-template-columns:1fr;text-align:center}
+  .gear-band .scribble{margin-left:auto;margin-right:auto}
   .gear-band .btn-outline-white{margin:0 auto}
   .gear-list{align-items:center}
   .gear-list li{text-align:left}
@@ -282,4 +283,13 @@ footer.site-footer{background:var(--footer-navy);color:#c9d6e2;padding:28px 0 16
   .portfolio-card .play-btn{top:34%}
   .portfolio-card .cap strong{font-size:.82rem}
   .portfolio-card .cap span{font-size:.68rem}
+  .hero-image img{max-width:220px}
+  .footer-goose img{max-width:110px}
+  .service-row .icon-wrap img{height:44px}
+  .hours-card img{width:34px;height:34px}
+  .gear-band img.gear-img{max-width:70%}
+  .logo img{width:38px;height:38px}
+  .booking-widget{padding:18px}
+  p{font-size:.92rem;line-height:1.55}
+  .hero p{font-size:.95rem}
 }
