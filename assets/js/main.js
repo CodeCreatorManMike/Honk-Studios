@@ -44,13 +44,12 @@ const HEADER_HTML = `
     <nav class="main-nav" id="main-nav">
       <a href="index.html" data-page="index">Home</a>
       <a href="studio-services.html" data-page="studio-services">Studio</a>
-      <a href="equipment.html" data-page="equipment">Equipment</a>
       <a href="listen.html" data-page="listen">Listen</a>
       <a href="visit.html" data-page="visit">Visit</a>
       <a href="contact.html" data-page="contact">Contact</a>
       <a href="about.html" data-page="about">About</a>
-      <a href="help.html" data-page="help">Help &amp; FAQ</a>
       <a href="meet-the-team.html" data-page="meet-the-team">Meet the Team</a>
+      <a href="help.html" data-page="help">Help &amp; FAQ</a>
     </nav>
     <div class="header-cta">
       <a class="btn btn-primary" target="_blank" rel="noopener" href="#" data-wa-header>
