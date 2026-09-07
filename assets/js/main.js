@@ -24,6 +24,8 @@ const PAGE_WA_MESSAGES = {
   "contact": "Hi Honk Studios! I have a question about booking / rates.",
   "about": "Hi Honk Studios! I'd like to know more about the studio.",
   "help": "Hi Honk Studios! I have a question that wasn't answered on the Help page:",
+  "meet-the-team": "Hi Honk Studios! I'd like to know more about the team.",
+  "testimonials": "Hi Honk Studios! I'd like to book after reading your testimonials.",
 };
 
 function headerWaMessage() {
@@ -36,15 +38,19 @@ const HEADER_HTML = `
   <div class="header-inner">
     <a href="index.html" class="logo">
       <img src="assets/icons/png/honk-logo.png" alt="Honk Studios">
+      <span class="brand">Honk Studios<small>Recording Studio in Oxford</small></span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
     <nav class="main-nav" id="main-nav">
       <a href="index.html" data-page="index">Home</a>
-      <a href="studio-services.html" data-page="studio-services">Studio Services</a>
+      <a href="studio-services.html" data-page="studio-services">Studio</a>
       <a href="equipment.html" data-page="equipment">Equipment</a>
       <a href="listen.html" data-page="listen">Listen</a>
       <a href="visit.html" data-page="visit">Visit</a>
       <a href="contact.html" data-page="contact">Contact</a>
+      <a href="about.html" data-page="about">About</a>
+      <a href="help.html" data-page="help">Help &amp; FAQ</a>
+      <a href="meet-the-team.html" data-page="meet-the-team">Meet the Team</a>
     </nav>
     <div class="header-cta">
       <a class="btn btn-primary" target="_blank" rel="noopener" href="#" data-wa-header>
@@ -67,8 +73,10 @@ const FOOTER_HTML = `
         </div>
         <p class="footer-desc">Recording studio and creative sound services in the heart of Oxford. Artist-first, community-minded.</p>
         <div class="social-row">
-          <a href="#" aria-label="Instagram"><img src="assets/icons/svg/instagram.svg" alt="" style="width:14px"></a>
-          <a href="#" aria-label="Facebook"><img src="assets/icons/svg/facebook.svg" alt="" style="width:14px"></a>
+          <!-- TODO (client to provide): Instagram handle — link pending -->
+          <a href="#" aria-label="Instagram (link coming soon)"><img src="assets/icons/svg/instagram.svg" alt="" style="width:14px"></a>
+          <!-- TODO (client to provide): Facebook page link — link pending -->
+          <a href="#" aria-label="Facebook (link coming soon)"><img src="assets/icons/svg/facebook.svg" alt="" style="width:14px"></a>
           <a href="https://www.linkedin.com/in/robingallardop/" aria-label="LinkedIn"><img src="assets/icons/svg/linkedin.svg" alt="" style="width:14px"></a>
         </div>
       </div>
@@ -83,6 +91,8 @@ const FOOTER_HTML = `
           <li><a href="contact.html">Contact</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="help.html">Help &amp; FAQs</a></li>
+          <li><a href="meet-the-team.html">Meet the Team</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
         </ul>
       </div>
       <div>
@@ -91,7 +101,10 @@ const FOOTER_HTML = `
           <li><a href="recording.html">Recording</a></li>
           <li><a href="mixing-editing.html">Mixing &amp; Editing</a></li>
           <li><a href="sound-design.html">Sound Design</a></li>
+          <li><a href="foley-sound-design.html">Foley &amp; Sound Design</a></li>
           <li><a href="podcasts-audio-drama.html">Podcasts / Audio Drama</a></li>
+          <li><a href="live-theatre.html">Live Theatre</a></li>
+          <li><a href="audio-books.html">Audio Books</a></li>
           <li><a href="creative-projects.html">Creative Projects</a></li>
         </ul>
       </div>
@@ -208,6 +221,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const open = card.classList.toggle("open");
       btn.setAttribute("aria-expanded", String(open));
     });
+  });
+
+  // Services scroll-carousel (home page): arrow buttons scroll the rail by one card width
+  document.querySelectorAll("[data-rail]").forEach(rail => {
+    const wrap = rail.closest(".rail-wrap");
+    const prevBtn = wrap && wrap.querySelector("[data-rail-prev]");
+    const nextBtn = wrap && wrap.querySelector("[data-rail-next]");
+    const step = () => {
+      const card = rail.querySelector(".card");
+      return card ? card.getBoundingClientRect().width + 16 : 220;
+    };
+    if (prevBtn) prevBtn.addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: "smooth" }));
+    if (nextBtn) nextBtn.addEventListener("click", () => rail.scrollBy({ left: step(), behavior: "smooth" }));
   });
 
   // Tabs (equipment page)
